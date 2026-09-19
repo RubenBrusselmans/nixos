@@ -1,0 +1,41 @@
+{ pkgs, ... }:
+{
+  home.packages = with pkgs; [
+    xdg-user-dirs
+    chromium
+    cowsay
+    lolcat
+    sl
+    thunderbird
+    eid-mw
+    web-eid-app
+    element-desktop
+    grim
+    libreoffice-fresh
+    librewolf
+    nextcloud-client
+    protonmail-bridge-gui
+    remmina
+    signal-desktop
+    yt-dlp
+    yubioath-flutter
+    yubikey-manager
+    freetube
+    kubectl
+    vlc
+    qpwgraph
+    orca-slicer
+    opencode
+    openspec
+    pavucontrol
+    guitarix
+    tuxguitar
+    fluxcd
+    sops
+    age
+    python3
+    iamb
+    affine
+    fastfetch
+  ];
+}
