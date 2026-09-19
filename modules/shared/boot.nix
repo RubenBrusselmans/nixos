@@ -1,13 +1,18 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 let
   # derive luks volumes from hardware-configuration.nix
   luksMappers = lib.unique (
-    map (fs: lib.removePrefix "/dev/mapper/" fs.device)
-      (lib.filter (fs: lib.hasPrefix "/dev/mapper/luks-" fs.device)
-        (lib.attrValues config.fileSystems))
-    ++ map (sw: lib.removePrefix "/dev/mapper/" sw.device)
-      (lib.filter (sw: lib.hasPrefix "/dev/mapper/luks-" sw.device)
-        config.swapDevices)
+    map (fs: lib.removePrefix "/dev/mapper/" fs.device) (
+      lib.filter (fs: lib.hasPrefix "/dev/mapper/luks-" fs.device) (lib.attrValues config.fileSystems)
+    )
+    ++ map (sw: lib.removePrefix "/dev/mapper/" sw.device) (
+      lib.filter (sw: lib.hasPrefix "/dev/mapper/luks-" sw.device) config.swapDevices
+    )
   );
 in
 {
@@ -20,15 +25,15 @@ in
     ];
 
     # initrd entry per volume + allow ssd trim
-    initrd.luks.devices = lib.listToAttrs (map
-      (mapper: {
+    initrd.luks.devices = lib.listToAttrs (
+      map (mapper: {
         name = mapper;
         value = {
           device = lib.mkDefault "/dev/disk/by-uuid/${lib.removePrefix "luks-" mapper}";
           allowDiscards = true;
         };
-      })
-      luksMappers);
+      }) luksMappers
+    );
 
     loader = {
       systemd-boot.enable = true;
