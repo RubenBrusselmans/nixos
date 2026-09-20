@@ -7,6 +7,8 @@
 
   systemd.user.services.gnome-remote-desktop.wantedBy = [ "gnome-session.target" ];
 
+  users.users.gnome-remote-desktop.extraGroups = [ "users" ];
+
   systemd.services.gnome-remote-desktop-cert = {
     description = "Generate TLS certificate for GNOME Remote Desktop";
     wantedBy = [ "multi-user.target" ];
@@ -31,6 +33,13 @@
       fi
     '';
   };
+
+  environment.etc."gnome-remote-desktop/grd.conf".text = ''
+    [RDP]
+    enabled=true
+    tls-cert=/var/lib/remote-desktop/rdp-tls.crt
+    tls-key=/var/lib/remote-desktop/rdp-tls.key
+  '';
 
   programs.dconf.profiles.user.databases = [
     {
