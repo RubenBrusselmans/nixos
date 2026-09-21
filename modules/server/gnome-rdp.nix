@@ -54,7 +54,7 @@
   ];
 
   networking.firewall.allowedTCPPorts = [
-    3389 # desktop sharing (user session)
-    3390 # remote login (display manager)
+    3389 # remote login (display manager)
+    3390 # desktop sharing (user session)
   ];
 }
