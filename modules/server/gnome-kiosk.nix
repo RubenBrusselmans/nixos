@@ -2,7 +2,10 @@
 
 {
   # disable workspaces overview at login
-  environment.systemPackages = [ pkgs.gnomeExtensions.no-overview ];
+  environment.systemPackages = [
+    pkgs.gnomeExtensions.no-overview
+    pkgs.jellyfin-desktop
+  ];
   programs.dconf.profiles.user.databases = [
     {
       settings."org/gnome/shell" = {
