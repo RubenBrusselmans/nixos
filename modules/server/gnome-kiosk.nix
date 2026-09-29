@@ -1,10 +1,26 @@
 { pkgs, ... }:
 
+let
+  # Upstream hardcodes a 50% stick trigger with narrow hysteresis (releases only
+  # below 30%) and a 60ms autorepeat — unusable for TV navigation. Raise the
+  # trigger to 75%, widen the release band, and slow repeats to 4 steps/sec.
+  jellyfin-desktop = pkgs.jellyfin-desktop.overrideAttrs (old: {
+    postPatch = (old.postPatch or "") + ''
+      substituteInPlace src/input/InputSDL.cpp \
+        --replace-fail 'std::abs(value) > 32768 / 2' 'std::abs(value) > 32768 / 4 * 3' \
+        --replace-fail 'std::abs(value) < 10000' 'std::abs(value) < 14000'
+      substituteInPlace src/input/InputComponent.cpp \
+        --replace-fail '#define INITAL_AUTOREPEAT_MSEC 650' '#define INITAL_AUTOREPEAT_MSEC 400' \
+        --replace-fail '#define AUTOREPEAT_MSEC 60' '#define AUTOREPEAT_MSEC 250'
+    '';
+  });
+in
+
 {
   # disable workspaces overview at login
   environment.systemPackages = [
     pkgs.gnomeExtensions.no-overview
-    pkgs.jellyfin-desktop
+    jellyfin-desktop
   ];
   programs.dconf.profiles.user.databases = [
     {
