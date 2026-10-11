@@ -1,0 +1,26 @@
+[include]
+files = [ "/run/current-system/sw/share/umbriel/config.toml", "keybinds.toml"]
+
+[general]
+
+[input.keyboard]
+layout = "be"
+
+[layout]
+mode = "master"
+gap = 8
+
+[layout.master]
+default_width_fraction = 0.5
+new_on_top = false
+
+[output.eDP-1]
+workspaces = 5
+position = [760, 1440]
+
+[output.HDMI-A-1]
+workspaces = 5
+position = [0, 0]
+
+[include.optional]
+files = ["noctalia.toml"]

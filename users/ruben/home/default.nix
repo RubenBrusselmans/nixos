@@ -15,5 +15,6 @@
     ./ghostty.nix
     ./neovim.nix
     ./fonts.nix
+    ./umbriel.nix
   ];
 }

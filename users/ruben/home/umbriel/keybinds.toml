@@ -1,0 +1,172 @@
+[keybinds]
+
+# Arrows / hjkl
+#   Mod             focus in that direction
+#   Mod+Shift       move the focused window in that direction
+#   Mod+Ctrl        previous / next workspace (left, h, up or k = previous)
+#   Mod+Ctrl+Shift  send the focused window to the previous / next workspace
+#   Mod+Alt         switch monitor
+#   Mod+Alt+Shift   send the focused window to the other monitor
+# Digits / wheel
+#   Mod             switch to a workspace (digits pick N, wheel steps previous / next)
+#   Mod+Shift       send the focused window to that workspace (wheel: Shift or Ctrl)
+# Home / End
+#   Mod             first / last column in the workspace
+#   Mod+Shift       send the focused window to the first / last column
+# One-offs
+#   Space           scratchpad: Mod shows it, Shift moves a window in, Ctrl restores it
+#   Shift+T         jump to a floating window
+#   O               toggle the workspace overview
+#   P               pin the window (stays on top, visible across workspace switches)
+#   M               maximize to the screen edges (no gaps, struts, or borders)
+#   Ctrl+F          maximize the column (full width)
+#   Ctrl+T          toggle this workspace's layout mode (master / scrolling / dwindle)
+#   I / D           promote / demote windows between the master area and the stack
+#   R / Minus / Equal   resize: Shift reverses, Alt is the height axis
+#   Shift+Print     fullscreen screenshot (Print alone = region)
+
+# Apps & panels
+"Mod" = "spawn:noctalia msg panel-toggle launcher"
+"Mod+Return" = { action = "spawn:GTK_IM_MODULE=simple ghostty", repeat = false }
+"Mod+Z" = { action = "spawn:noctalia msg panel-toggle launcher /emo", repeat = false }
+"Mod+V" = { action = "spawn:noctalia msg panel-toggle clipboard", repeat = false }
+"Mod+W" = { action = "spawn:noctalia msg panel-toggle wallpaper", repeat = false }
+"Mod+N" = { action = "spawn:noctalia msg panel-toggle noctalia/notes:panel", repeat = false }
+"Mod+Q" = { action = "spawn:noctalia msg panel-toggle control-center", repeat = false }
+"Mod+C" = { action = "cheatsheet-toggle", repeat = false }
+"Mod+S" = { action = "spawn:signal-desktop --password-store='gnome-libsecret'", repeat = false }
+
+# Windows
+"Mod+Backspace" = { action = "window-close", repeat = false }
+"Mod+F" = { action = "window-toggle-fullscreen", repeat = false }
+"Mod+Ctrl+F" = { action = "window-toggle-maximize", repeat = false }
+"Mod+M" = { action = "window-toggle-maximize-to-edges", repeat = false }
+"Mod+T" = { action = "window-toggle-floating", repeat = false }
+"Mod+Shift+T" = { action = "window-focus-switch-floating", repeat = false }
+"Mod+P" = { action = "window-toggle-pinned", repeat = false }
+"Mod+O" = { action = "overview-toggle", repeat = false }
+
+# Scratchpad
+"Mod+Space" = "scratchpad-toggle"
+"Mod+Shift+Space" = "window-move-to-scratchpad"
+"Mod+Ctrl+Space" = "window-restore-from-scratchpad"
+"Mod+Tab" = "scratchpad-focus-next"
+
+# Focus (Mod)
+"Mod+H" = "window-focus-left"
+"Mod+J" = "window-focus-down"
+"Mod+K" = "window-focus-up"
+"Mod+L" = "window-focus-right"
+"Mod+Left" = "window-focus-left"
+"Mod+Down" = "window-focus-down"
+"Mod+Up" = "window-focus-up"
+"Mod+Right" = "window-focus-right"
+
+# Move window (Mod+Shift)
+"Mod+Shift+H" = "column-move-left"
+"Mod+Shift+J" = "window-move-down"
+"Mod+Shift+K" = "window-move-up"
+"Mod+Shift+L" = "column-move-right"
+"Mod+Shift+Left" = "column-move-left"
+"Mod+Shift+Down" = "window-move-down"
+"Mod+Shift+Up" = "window-move-up"
+"Mod+Shift+Right" = "column-move-right"
+
+# First / last column (Mod+Shift sends the window there)
+"Mod+Home" = "column-focus-first"
+"Mod+End" = "column-focus-last"
+"Mod+Shift+Home" = "column-move-to-first"
+"Mod+Shift+End" = "column-move-to-last"
+
+# Previous / next workspace (Mod+Ctrl; Mod+Shift sends the window to that workspace)
+"Mod+Ctrl+Left" = { action = "workspace-previous", repeat = false }
+"Mod+Ctrl+H" = { action = "workspace-previous", repeat = false }
+"Mod+Ctrl+Up" = { action = "workspace-previous", repeat = false }
+"Mod+Ctrl+K" = { action = "workspace-previous", repeat = false }
+"Mod+Ctrl+Right" = { action = "workspace-next", repeat = false }
+"Mod+Ctrl+L" = { action = "workspace-next", repeat = false }
+"Mod+Ctrl+Down" = { action = "workspace-next", repeat = false }
+"Mod+Ctrl+J" = { action = "workspace-next", repeat = false }
+"Mod+Ctrl+Shift+Left" = { action = "window-move-to-workspace-previous", repeat = false }
+"Mod+Ctrl+Shift+H" = { action = "window-move-to-workspace-previous", repeat = false }
+"Mod+Ctrl+Shift+Up" = { action = "window-move-to-workspace-previous", repeat = false }
+"Mod+Ctrl+Shift+K" = { action = "window-move-to-workspace-previous", repeat = false }
+"Mod+Ctrl+Shift+Right" = { action = "window-move-to-workspace-next", repeat = false }
+"Mod+Ctrl+Shift+L" = { action = "window-move-to-workspace-next", repeat = false }
+"Mod+Ctrl+Shift+Down" = { action = "window-move-to-workspace-next", repeat = false }
+"Mod+Ctrl+Shift+J" = { action = "window-move-to-workspace-next", repeat = false }
+
+# Monitors (Mod+Alt; Mod+Shift sends the window to that monitor)
+"Mod+Alt+H" = "output-focus-left"
+"Mod+Alt+J" = "output-focus-down"
+"Mod+Alt+K" = "output-focus-up"
+"Mod+Alt+L" = "output-focus-right"
+"Mod+Alt+Left" = "output-focus-left"
+"Mod+Alt+Down" = "output-focus-down"
+"Mod+Alt+Up" = "output-focus-up"
+"Mod+Alt+Right" = "output-focus-right"
+"Mod+Alt+Shift+H" = "window-move-to-output-left"
+"Mod+Alt+Shift+J" = "window-move-to-output-down"
+"Mod+Alt+Shift+K" = "window-move-to-output-up"
+"Mod+Alt+Shift+L" = "window-move-to-output-right"
+"Mod+Alt+Shift+Left" = "window-move-to-output-left"
+"Mod+Alt+Shift+Down" = "window-move-to-output-down"
+"Mod+Alt+Shift+Up" = "window-move-to-output-up"
+"Mod+Alt+Shift+Right" = "window-move-to-output-right"
+
+# Workspaces 1-5 (azerty: & é " ' ( ; Mod+Shift sends the window to that workspace)
+"Mod+Ampersand" = { action = "workspace-switch:1", repeat = false }
+"Mod+Eacute" = { action = "workspace-switch:2", repeat = false }
+"Mod+Quotedbl" = { action = "workspace-switch:3", repeat = false }
+"Mod+Apostrophe" = { action = "workspace-switch:4", repeat = false }
+"Mod+Parenleft" = { action = "workspace-switch:5", repeat = false }
+"Mod+Shift+1" = { action = "window-move-to-workspace:1", repeat = false }
+"Mod+Shift+2" = { action = "window-move-to-workspace:2", repeat = false }
+"Mod+Shift+3" = { action = "window-move-to-workspace:3", repeat = false }
+"Mod+Shift+4" = { action = "window-move-to-workspace:4", repeat = false }
+"Mod+Shift+5" = { action = "window-move-to-workspace:5", repeat = false }
+
+# Wheel (Shift or Ctrl sends the window to that workspace; not rate-limited:
+# cooldown_ms needs a newer umbriel)
+"Mod+WheelUp" = "workspace-previous"
+"Mod+WheelDown" = "workspace-next"
+"Mod+Shift+WheelUp" = "window-move-to-workspace-previous"
+"Mod+Shift+WheelDown" = "window-move-to-workspace-next"
+"Mod+Ctrl+WheelUp" = "window-move-to-workspace-previous"
+"Mod+Ctrl+WheelDown" = "window-move-to-workspace-next"
+
+# Workspace layout (this workspace only)
+"Mod+Ctrl+T" = { action = "workspace-set-layout:toggle", repeat = false }
+
+# Master count
+"Mod+I" = { action = "layout-master-count-increase", repeat = false }
+"Mod+D" = { action = "layout-master-count-decrease", repeat = false }
+
+# Resize (Alt = height; Shift = reverse)
+"Mod+R" = { action = "window-cycle-primary-extent", repeat = false }
+"Mod+Shift+R" = { action = "window-cycle-primary-extent-back", repeat = false }
+"Mod+Alt+R" = { action = "window-cycle-secondary-extent", repeat = false }
+"Mod+Alt+Shift+R" = { action = "window-cycle-secondary-extent-back", repeat = false }
+"Mod+Minus" = "window-modify-primary-extent:-0.05"
+"Mod+Equal" = "window-modify-primary-extent:0.05"
+"Mod+Alt+Minus" = "window-modify-secondary-extent:-0.05"
+"Mod+Alt+Equal" = "window-modify-secondary-extent:0.05"
+
+# Session & screenshots
+"Mod+Escape" = { action = "session-quit", repeat = false }
+"Mod+Shift+Escape" = { action = "spawn:noctalia msg session lock", repeat = false }
+"Print" = { action = "spawn:noctalia msg screenshot-region", repeat = false }
+"Shift+Print" = { action = "spawn:noctalia msg screenshot-fullscreen", repeat = false }
+"Mod+Shift+S" = { action = "spawn:flameshot gui", repeat = false }
+
+# Media & brightness (work on the lock screen)
+"XF86AudioRaiseVolume" = { action = "spawn:noctalia msg volume-up", allow_when_locked = true }
+"XF86AudioLowerVolume" = { action = "spawn:noctalia msg volume-down", allow_when_locked = true }
+"XF86AudioMute" = { action = "spawn:noctalia msg volume-mute", allow_when_locked = true }
+"XF86AudioMicMute" = { action = "spawn:wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle", allow_when_locked = true }
+"XF86AudioPlay" = { action = "spawn:playerctl play-pause", allow_when_locked = true, repeat = false }
+"XF86AudioPause" = { action = "spawn:playerctl play-pause", allow_when_locked = true, repeat = false }
+"XF86AudioNext" = { action = "spawn:playerctl next", allow_when_locked = true, repeat = false }
+"XF86AudioPrev" = { action = "spawn:playerctl previous", allow_when_locked = true, repeat = false }
+"XF86MonBrightnessDown" = { action = "spawn:noctalia msg brightness-down 10", allow_when_locked = true }
+"XF86MonBrightnessUp" = { action = "spawn:noctalia msg brightness-up 10", allow_when_locked = true }
