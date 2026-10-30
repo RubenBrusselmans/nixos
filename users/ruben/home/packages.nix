@@ -38,7 +38,5 @@
     iamb
     affine
     fastfetch
-    omnissa-horizon-client
-    onlyoffice-desktopeditors
   ];
 }
