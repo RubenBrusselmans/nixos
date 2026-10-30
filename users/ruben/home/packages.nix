@@ -8,7 +8,7 @@
     sl
     thunderbird
     eid-mw
-    beidconnect
+    unstable.beidconnect
     web-eid-app
     element-desktop
     grim
