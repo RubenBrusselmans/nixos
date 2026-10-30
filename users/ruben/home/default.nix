@@ -15,6 +15,7 @@
     ./ghostty.nix
     ./neovim.nix
     ./fonts.nix
+    ./git.nix
     ./umbriel.nix
   ];
 }
